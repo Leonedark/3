@@ -1,0 +1,34 @@
+
+import pandas as pd
+import datetime as dt
+
+base = pd.read_csv("netflix daily top 10.csv")
+base.head()
+
+
+base.tail()
+display(base)
+inicio = pd.to_datetime(base['As of']).dt.date.min()
+print(inicio)
+
+fim = pd.to_datetime(base['As of']).dt.date.max()
+print(fim)
+base.info()
+base.dtypes
+
+base.isnull().sum()
+base['Netflix Exclusive'].value_counts()
+
+base.describe()
+base.plot(kind='box',figsize=(10,6),subplots=True);
+base[base['Days In Top 10'] >= 100]
+
+base_excel = base[base['Days In Top 10'] >= 100]
+base_excel.to_excel('Verificar.xlsx')
+
+base.Title.value_counts()
+base.Type.value_counts().plot(kind='bar');
+base['Viewership Score'].hist();
+
+base['Viewership Score'].hist() == base['Viewership Score'].max()
+base[base['Viewership Score'] == base['Viewership Score'].max()]
