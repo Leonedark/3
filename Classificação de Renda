@@ -1,0 +1,40 @@
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+import seaborn as sns
+df = pd.read_csv('income_evaluation.csv')
+df.isnull().any()
+
+
+df = df.rename(columns={'age': 'age',
+                         ' workclass': 'workclass',
+                         ' fnlwgt': 'final_weight',
+                         ' education': 'education',
+                         ' education-num': 'education_num',
+                         ' marital-status': 'marital_status',
+                         ' occupation': 'occupation',
+                         ' relationship': 'relationship',
+                         ' race': 'race',
+                         ' sex': 'sex',
+                         ' capital-gain': 'capital_gain',
+                         ' capital-loss': 'capital_loss',
+                         ' hours-per-week': 'hrs_per_week',
+                         ' native-country': 'native_country',
+                         ' income': 'income'
+                        })
+df.columns
+
+
+
+df['income'].unique()
+df['income_encoded'] = [1 if value == ' >50K' else 0 for value in df['income'].values]
+df['income_encoded'].unique()
+# Let's check some descriptive statistics
+df.describe()
+
+
+
+df[df['income'] == ' >50K']['occupation'].value_counts().head(3)
+pd.crosstab(df["occupation"], df['income']).plot(kind='barh', stacked=True, figsize=(20, 10))
+
+
