@@ -54,7 +54,6 @@ fig.suptitle('Distribution of Genre for all unique books from 2009 to 2019', fon
 fig.show()
 
 
-![image](https://github.com/Leonedark/PROJETOS-EM-PYTHON/assets/171176058/58f78bf6-5bb4-42f1-a172-3a5b0413738f)
 
 y1 = np.arange(2009, 2014)
 y2 = np.arange(2014, 2020)
@@ -86,7 +85,6 @@ for i, year in enumerate(y2):
 fig.legend(g_count.index, loc='center right', fontsize=12)
 fig.show()
 
-![image](https://github.com/Leonedark/PROJETOS-EM-PYTHON/assets/171176058/0ea4020d-4835-47ee-8993-f773244d0919)
 
 best_nf_authors = df.groupby(['Author', 'Genre']).agg({'Name': 'count'}).unstack()['Name', 'Non Fiction'].sort_values(ascending=False)[:11]
 best_f_authors = df.groupby(['Author', 'Genre']).agg({'Name': 'count'}).unstack()['Name', 'Fiction'].sort_values(ascending=False)[:11]
@@ -115,7 +113,6 @@ with plt.style.context('Solarize_Light2'):
     
 plt.show()
 
-![image](https://github.com/Leonedark/PROJETOS-EM-PYTHON/assets/171176058/b575df1f-88ac-46f4-971d-27250b7a5ba8)
 
 n_best = 20
 
@@ -153,7 +150,6 @@ ax[2].set_title('Total reviews')
 #plt.suptitle('Top 20 best selling Authors (from 2009 to 2019) details', fontsize=15)
 plt.show()
 
-![image](https://github.com/Leonedark/PROJETOS-EM-PYTHON/assets/171176058/c97a9b6e-81e2-400d-9235-5b6aeec7b36a)
 
 
 
